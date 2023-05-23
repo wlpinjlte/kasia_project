@@ -1,0 +1,243 @@
+body{
+    font-family: sans-serif;
+    margin:0;
+    -webkit-user-select: none;
+    -ms-user-select: none; 
+    user-select: none; 
+}
+
+#subregions-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top:5rem;
+}
+
+.subregion{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.arrow{
+    position: absolute;
+    left:2%;
+    top:0.5rem;
+    font-size: 2.5rem;
+    color:rgb(114, 118, 121);
+    transition: 1s;
+}
+
+.data{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    cursor:pointer;
+}
+
+.data>h1{
+    width: 25%;
+}
+
+header{
+    display: flex;
+    background-color: rgb(218, 225, 230);
+    justify-content: space-evenly;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+}
+.sortArrow::before{
+    content: "▼";
+    color: grey;
+    font-size: 1.5rem;
+    position: absolute;
+    top:80%;
+    left:40%;
+}
+header>h1{
+    width: 20%;
+    position: relative;
+    display: flex;
+}
+header>h1>div{
+    position: relative;
+}
+header>h1:nth-child(2){
+    width: 8%;
+}
+header>h1:nth-child(3){
+    cursor:pointer;
+}
+header>h1:nth-child(4){
+    cursor:pointer;
+}
+header>h1:nth-child(1){
+    cursor:pointer;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+
+.region{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(240, 246, 250);
+    height: fit-content;
+    overflow: hidden;
+}
+
+.region-container{
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    max-height: 0;
+    transition: 1s;
+}
+
+.region:hover{
+    transform: scale(1.1);
+    transition: 0.5s;
+}
+
+.region>img{
+    width: 8%;
+    height: 8%;
+    align-self: center;
+    border-radius: 10px;
+}
+
+.region>p{
+    font-size: 2rem;
+}
+
+.region>*{
+    width: 20%;
+}
+
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+    position: relative;
+    top: 4.5rem;
+}
+
+.number{
+    height: 3rem;
+    width: 3rem;
+    background-color: rgb(218, 225, 230);
+    font-size: 2rem;
+    text-align: center;
+    line-height:3rem;
+    border-radius: 10px;
+    margin-left: 2rem;
+}
+
+.currPageDown{
+    background-color:rgb(112, 131, 145)
+}
+
+#sidebar{
+    display: flex;
+    position: fixed;
+    bottom:0;
+    right:0;
+    width: 7.5rem;
+    height: 15rem;
+    /* background-color: red; */
+    flex-direction: column;
+}
+
+#sidebar img{
+    width: 100%;
+}
+
+#sidebar>a:nth-child(1)>img{
+    transform: scale(1.5);
+}
+
+@media screen and (min-width:651px) and (max-width: 800px){
+    .region>p{
+        font-size: 1.7rem;
+    }
+    h1{
+        font-size: 1.7rem;
+    }
+    #sidebar{
+        width: 5rem;
+        height: 10rem;
+    }
+    .sortArrow::before{
+        font-size: 1.2rem;
+    }
+}
+@media screen and (min-width:451px) and (max-width: 650px){
+    .region>p{
+        font-size: 1.2rem;
+    }
+    .arrow{
+        font-size: 1.5rem;
+    }
+    h1{
+        font-size: 1.2rem;
+    }
+    #sidebar{
+        width: 4rem;
+        height: 8rem;
+    }
+    #subregions-container{
+        top:3rem;
+    }
+    .number{
+        height: 2.5rem;
+        width: 2.5rem;
+        font-size: 1.5rem;
+        text-align: center;
+        line-height:2.5rem;
+        border-radius: 10px;
+        margin-left: 2rem;
+    }
+    footer{
+        top:3rem;
+    }
+    .sortArrow::before{
+        font-size: 1rem;
+    }
+}
+@media screen and (max-width: 450px){
+    .region>p{
+        font-size: 1rem;
+    }
+    .arrow{
+        font-size: 1.3rem;
+    }
+    h1{
+        font-size: 1rem;
+    }
+    #sidebar{
+        width: 3rem;
+        height: 6rem;
+    }
+    #subregions-container{
+        top:2.3rem;
+    }
+    .number{
+        height: 2rem;
+        width: 2rem;
+        font-size: 1.3rem;
+        text-align: center;
+        line-height:2rem;
+        border-radius: 10px;
+        margin-left: 1rem;
+    }
+    footer{
+        top:1.5rem;
+    }
+    .sortArrow::before{
+        font-size: 0.8rem;
+    }
+}
