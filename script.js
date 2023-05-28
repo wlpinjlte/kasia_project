@@ -1,11 +1,15 @@
 const api_url = "https://restcountries.com/v3.1/all";
+import dataa from './assets/countriesV3.json'assert { type: 'json' };
+console.log(dataa)
 let subregionDivArray=[];
 let currPage=1;
 let regionsPerPage=Math.round($(document).height()/60);
+let isLoad=false;
 async function getapi() {
     try {
         const response = await fetch(api_url)
         const data = await response.json();
+        isLoad=true
         return data;
     } catch(err) {
         console.error(err);
@@ -172,6 +176,34 @@ getapi().then(data=>{
             population:element.population,
             area:element.area,
             flag:element.flags.png
+        })    
+    })
+    subregions.forEach(region=>{
+        loadSubregions(region,mapForSubregions);
+    })
+    footerdisplay();
+    changeCurrPage(0);
+    displaySubregions();
+    sortFunction();
+})
+.catch(err=>{
+    let data=dataa;
+    console.log(data);
+    const subregions=new Set();
+    const mapForSubregions=new Map();
+    data.forEach(element => {
+        subregions.add(element.subregion);
+    });
+    subregions.forEach(region=>{
+        console.log(region)
+        mapForSubregions.set(region,[]);
+    });
+    data.forEach(element=>{
+        mapForSubregions.get(element.subregion).push({
+            name:element.name.common,
+            population:element.population,
+            area:element.area,
+            flag:isLoad?element.flags.png:element.flags[0]
         })    
     })
     subregions.forEach(region=>{
